@@ -20,14 +20,18 @@ export const crearProducto = (datos) => {
 
   // Validar que el precio sea correcto
   if (typeof datos.precio !== "number" || datos.precio <= 0) {
-  throw new Error("El precio debe ser un número mayor que cero");
+    throw new Error("El precio debe ser un número mayor que cero");
   }
+
+  // Calcular el descuento
+  const precioFinal = calcularDescuento(datos.precio);
 
   // Crear el nuevo producto
   const nuevoProducto = {
-    id: Date.now(),
+    id: productos.length + 1,
     nombre: datos.nombre,
-    precio: datos.precio
+    precio: datos.precio,
+    precioFinal: precioFinal
   };
 
   // Guardar el producto utilizando el Repository
@@ -56,4 +60,18 @@ export const eliminarProducto = (id) => {
   }
 
   return producto;
+};
+
+// Calcular descuento de un producto
+export const calcularDescuento = (precio) => {
+
+  // Si el precio supera los $100.000,
+  // se aplica un descuento del 10%
+  if (precio > 100000) {
+    return precio * 0.90;
+  }
+
+  // Si no supera los $100.000,
+  // mantiene el precio original
+  return precio;
 };
