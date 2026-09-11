@@ -4,7 +4,8 @@ import {
   getProductos,
   postProducto,
   getProducto,
-  deleteProducto
+  deleteProducto,
+  getProductosPorPrecio
 } from "../controllers/producto_controller.js";
 
 const router = Router();
@@ -15,10 +16,13 @@ router.get("/", getProductos);
 // POST /productos
 router.post("/", postProducto);
 
-export default router;
+// GET /productos/precio/:precio
+router.get("/precio/:precio", getProductosPorPrecio);
 
 // GET /productos/:id
 router.get("/:id", getProducto);
 
 // DELETE /productos/:id
 router.delete("/:id", deleteProducto);
+
+export default router;

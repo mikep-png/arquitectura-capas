@@ -2,7 +2,8 @@ import {
   obtenerTodos,
   guardar,
   obtenerPorId,
-  eliminar
+  eliminar,
+  obtenerPorPrecio
 } from "../repositories/producto_repository.js";
 
 // Obtener todos los productos
@@ -23,15 +24,15 @@ export const crearProducto = (datos) => {
   throw new Error("El precio debe ser un número mayor que cero");
   }
 
-  // Obtener los productos actuales
-  const productos = obtenerTodos();
+// Obtener los productos actuales
+const productos = obtenerTodos();
 
-  // Crear el nuevo producto
-  const nuevoProducto = {
-    id: productos.length + 1,
-    nombre: datos.nombre,
-    precio: datos.precio
-  };
+// Crear el nuevo producto
+const nuevoProducto = {
+  id: productos.length + 1,
+  nombre: datos.nombre,
+  precio: datos.precio
+};
 
   // Guardar el producto utilizando el Repository
   return guardar(nuevoProducto);
@@ -59,4 +60,16 @@ export const eliminarProducto = (id) => {
   }
 
   return producto;
+};
+
+// Buscar productos por precio
+export const buscarPorPrecio = (precio) => {
+
+  const productos = obtenerPorPrecio(precio);
+
+  if (productos.length === 0) {
+    throw new Error("No se encontraron productos con ese precio");
+  }
+
+  return productos;
 };
