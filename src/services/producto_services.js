@@ -1,6 +1,7 @@
 import {
   obtenerTodos,
-  guardar
+  guardar,
+  obtenerPorId
 } from "../repositories/producto_repository.js";
 
 // Obtener todos los productos
@@ -30,4 +31,16 @@ export const crearProducto = (datos) => {
 
   // Guardar el producto utilizando el Repository
   return guardar(nuevoProducto);
+};
+
+// Buscar un producto por su ID
+export const buscarProducto = (id) => {
+
+  const producto = obtenerPorId(id);
+
+  if (!producto) {
+    throw new Error("Producto no encontrado");
+  }
+
+  return producto;
 };

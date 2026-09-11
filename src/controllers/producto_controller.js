@@ -1,6 +1,7 @@
 import {
   listarProductos,
-  crearProducto
+  crearProducto,
+  buscarProducto
 } from "../services/producto_services.js";
 
 // Controlador para listar productos
@@ -26,6 +27,26 @@ export const postProducto = (req, res) => {
   } catch (error) {
 
     res.status(400).json({
+      error: error.message
+    });
+
+  }
+};
+
+// Controlador para buscar un producto por ID
+export const getProducto = (req, res) => {
+
+  try {
+
+    const id = Number(req.params.id);
+
+    const producto = buscarProducto(id);
+
+    res.status(200).json(producto);
+
+  } catch (error) {
+
+    res.status(404).json({
       error: error.message
     });
 

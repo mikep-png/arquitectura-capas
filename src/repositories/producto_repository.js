@@ -22,3 +22,8 @@ export const guardar = (producto) => {
   productos.push(producto);
   return producto;
 };
+
+// Buscar un producto por su ID
+export const obtenerPorId = (id) => {
+  return productos.find(producto => producto.id === id);
+};
