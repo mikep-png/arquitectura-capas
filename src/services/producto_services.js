@@ -2,7 +2,8 @@ import {
   obtenerTodos,
   guardar,
   obtenerPorId,
-  eliminar
+  eliminar,
+  obtenerPorPrecio
 } from "../repositories/producto_repository.js";
 
 // Obtener todos los productos
@@ -56,4 +57,16 @@ export const eliminarProducto = (id) => {
   }
 
   return producto;
+};
+
+// Buscar productos por precio
+export const buscarPorPrecio = (precio) => {
+
+  const productos = obtenerPorPrecio(precio);
+
+  if (productos.length === 0) {
+    throw new Error("No se encontraron productos con ese precio");
+  }
+
+  return productos;
 };

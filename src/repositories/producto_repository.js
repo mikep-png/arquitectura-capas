@@ -41,3 +41,8 @@ export const eliminar = (id) => {
 
   return productoEliminado[0];
 };
+
+// Buscar productos por precio
+export const obtenerPorPrecio = (precio) => {
+  return productos.filter(producto => producto.precio === precio);
+};
