@@ -271,6 +271,10 @@ git commit -m "feat: conectar API de productos"
 
 git commit -m "docs: agregar README del proyecto"
 
+git commit -m "Actualizar error de varios codigos"
+
+
+
 git commit -m "test: comprobar endpoints de productos"
 
 git commit -m "test: comprobar validaciones de productos"
