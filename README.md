@@ -273,7 +273,7 @@ git commit -m "docs: agregar README del proyecto"
 
 git commit -m "Actualizar error de varios codigos"
 
-
+git commit -m "Revisar código y actualizar errores"
 
 git commit -m "test: comprobar endpoints de productos"
 
