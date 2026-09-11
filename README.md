@@ -55,13 +55,13 @@ http://localhost:3000
 arquitectura-capas/
 ├── src/
 │   ├── routes/
-│   │   └── producto.routes.js
+│   │   └── producto_routes.js
 │   ├── controllers/
-│   │   └── producto.controller.js
+│   │   └── producto_controller.js
 │   ├── services/
-│   │   └── producto.service.js
+│   │   └── producto_service.js
 │   ├── repositories/
-│   │   └── producto.repository.js
+│   │   └── producto_repository.js
 │   └── app.js
 ├── .gitignore
 ├── package.json

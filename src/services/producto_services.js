@@ -1,7 +1,7 @@
 import {
   obtenerTodos,
   guardar
-} from "../repositories/producto.repository.js";
+} from "../repositories/producto_repository.js";
 
 // Obtener todos los productos
 export const listarProductos = () => {

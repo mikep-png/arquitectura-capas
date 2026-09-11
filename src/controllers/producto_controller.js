@@ -1,7 +1,7 @@
 import {
   listarProductos,
   crearProducto
-} from "../services/producto.service.js";
+} from "../services/producto_service.js";
 
 // Controlador para listar productos
 export const getProductos = (req, res) => {
