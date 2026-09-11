@@ -1,7 +1,8 @@
 import {
   listarProductos,
   crearProducto,
-  buscarProducto
+  buscarProducto,
+  eliminarProducto
 } from "../services/producto_services.js";
 
 // Controlador para listar productos
@@ -43,6 +44,29 @@ export const getProducto = (req, res) => {
     const producto = buscarProducto(id);
 
     res.status(200).json(producto);
+
+  } catch (error) {
+
+    res.status(404).json({
+      error: error.message
+    });
+
+  }
+};
+
+// Controlador para eliminar un producto
+export const deleteProducto = (req, res) => {
+
+  try {
+
+    const id = Number(req.params.id);
+
+    const producto = eliminarProducto(id);
+
+    res.status(200).json({
+      mensaje: "Producto eliminado correctamente",
+      producto: producto
+    });
 
   } catch (error) {
 

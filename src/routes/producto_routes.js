@@ -3,7 +3,8 @@ import { Router } from "express";
 import {
   getProductos,
   postProducto,
-  getProducto
+  getProducto,
+  deleteProducto
 } from "../controllers/producto_controller.js";
 
 const router = Router();
@@ -18,3 +19,6 @@ export default router;
 
 // GET /productos/:id
 router.get("/:id", getProducto);
+
+// DELETE /productos/:id
+router.delete("/:id", deleteProducto);

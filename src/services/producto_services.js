@@ -1,7 +1,8 @@
 import {
   obtenerTodos,
   guardar,
-  obtenerPorId
+  obtenerPorId,
+  eliminar
 } from "../repositories/producto_repository.js";
 
 // Obtener todos los productos
@@ -37,6 +38,18 @@ export const crearProducto = (datos) => {
 export const buscarProducto = (id) => {
 
   const producto = obtenerPorId(id);
+
+  if (!producto) {
+    throw new Error("Producto no encontrado");
+  }
+
+  return producto;
+};
+
+// Eliminar un producto
+export const eliminarProducto = (id) => {
+
+  const producto = eliminar(id);
 
   if (!producto) {
     throw new Error("Producto no encontrado");
