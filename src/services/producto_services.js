@@ -23,6 +23,9 @@ export const crearProducto = (datos) => {
   throw new Error("El precio debe ser un número mayor que cero");
   }
 
+  // Obtener los productos actuales
+  const productos = obtenerTodos();
+
   // Crear el nuevo producto
   const nuevoProducto = {
     id: productos.length + 1,
