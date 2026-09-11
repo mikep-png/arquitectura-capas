@@ -25,7 +25,7 @@ export const crearProducto = (datos) => {
 
   // Crear el nuevo producto
   const nuevoProducto = {
-    id: Date.now(),
+    id: productos.length + 1,
     nombre: datos.nombre,
     precio: datos.precio
   };
