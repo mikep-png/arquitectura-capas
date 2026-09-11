@@ -18,9 +18,9 @@ export const crearProducto = (datos) => {
     throw new Error("El nombre del producto es obligatorio");
   }
 
-  // Validar que el precio sea mayor que cero
-  if (!datos.precio || datos.precio <= 0) {
-    throw new Error("El precio debe ser mayor que cero");
+  // Validar que el precio sea correcto
+  if (typeof datos.precio !== "number" || datos.precio <= 0) {
+  throw new Error("El precio debe ser un número mayor que cero");
   }
 
   // Crear el nuevo producto
